@@ -1,0 +1,17 @@
+extends layout
+
+block variables
+  - var title = 'Lets chat about something'
+
+block content
+  .row
+    .col-lg-3
+      h3 Chat Rooms
+      ul.list-group
+        each room, i in rooms
+          li.list-group-item
+            a(href="chat/"+room.name ) #{room.name}
+    .col-lg-9
+      .jumbotron
+        h1 Join a chat room
+        p.lead You can check out our chat rooms on the left

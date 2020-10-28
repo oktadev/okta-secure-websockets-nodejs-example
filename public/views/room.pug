@@ -1,0 +1,27 @@
+extends layout
+
+block variables
+  - var title = 'Chat'
+
+block content
+  .row
+    .col-lg-3
+        h3 Users
+        ul#users-list.list-group
+          each user, i in room.users
+            li.list-group-item #{user}
+    .col-lg-9
+        .row
+            .col-lg-12
+                table#chat-table.table.table-bordered
+        .row
+            .col-lg-10
+                input#chat-message(type=text placeholder="enter a message").form-control
+            .col-lg-2
+                button#chat-button.btn.btn-primary Send
+    
+
+  script(src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js")
+  script(src="..\\js\\room.js")
+  script.
+    start('!{jwt}')
